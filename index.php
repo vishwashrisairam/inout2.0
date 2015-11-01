@@ -21,7 +21,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
- 
+
 
 </head>
 
@@ -70,11 +70,11 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1>Health India</h1>
-                 
+
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="login.html" class="btn btn-default btn-lg"><i class="fa fa-user fa-fw"></i> <span class="network-name">Login</span></a>
+                                <a href="login.php" class="btn btn-default btn-lg"><i class="fa fa-user fa-fw"></i> <span class="network-name">Login</span></a>
                             </li>
                         </ul>
                     </div>
@@ -85,7 +85,7 @@
         <!-- /.container -->
 
     </div>
-    
+
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>

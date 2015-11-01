@@ -1,0 +1,66 @@
+$sql1="select * from patient WHERE patient_id='$id'";
+$result1=mysqli_query($conn,$sql1);
+
+ if(mysqli_num_rows($result1)>0){
+   $row1 = mysqli_fetch_assoc($result1);
+
+
+
+   echo '
+       <img alt="User Pic" src="'.$row1["photo"].'" class="img img-responsive" style="height:20em"></div>
+
+       <div class=" col-md-9 col-lg-9 ">
+
+       <ul class="tabs">
+       <li class="tab-link current" data-tab="tab-1"><b>Profile</b></li>
+
+
+       </ul>
+
+ <div id="tab-1" class="tab-content current">
+       <table class="table table-user-information">
+<tbody>
+
+<tr>
+ <td>Name</td>
+ <td>'.$row1["name"].'</td>
+</tr>
+<tr>
+ <td>Dob</td>
+ <td>'.$row1["dob"].'</td>
+</tr>
+
+
+      <tr>
+ <td>Age</td>
+ <td>'.$row1["age"].'</td>
+</tr>
+<tr>
+<td>Gender</td>
+<td>'.$row1["gender"].'</td>
+</tr>
+ <tr>
+ <td>Address</td>
+ <td>'.$row1["address"].'</td>
+</tr>
+<tr>
+ <td>Contact No</td>
+ <td>'.$row1["cno"].'</td>
+</tr>
+<tr>
+ <td>City,State</td>
+ <td>'.$row1["place"].' '.$row1["state"].'</td>
+</tr>
+
+<tr>
+<td>Physically Disabled</td>
+<td>'.$row1["disease"].'</td>
+</tr>
+
+</tbody>
+</table>
+   ';
+
+} else {
+echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+}
