@@ -1,3 +1,47 @@
+<?php
+      $conn = new mysqli("localhost", "root", "", "inout");
+
+      // Check connection
+      if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+      }
+      session_start();
+
+      if(isset($_POST['submit'])){
+        //Perform varification
+        $un=mysqli_real_escape_string($conn,$_POST['username']);
+        $pass=mysqli_real_escape_string($conn,$_POST['password']);
+  //      $pass=md5($pass);
+
+
+
+        $sql="SELECT * from doctor WHERE doctorid='$un' ";
+        $result=mysqli_query($conn,$sql);
+        if($result){
+            while($row = mysqli_fetch_assoc($result)) {
+
+
+                if($row["password"]==$pass){
+                    $_SESSION["login_user"]=$un;
+
+                    header("Location:report.php");
+                }else{
+                    echo '<script>alert("invalid username or password");</script>';
+                }
+
+           }
+        }else{
+            echo '<script>alert("invalid username or password");</script>';
+        }
+        }
+
+
+
+
+?>
+
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -69,21 +113,21 @@
     <!--END SLIDE-IN ICONS-->
 
 <!--LOGIN FORM-->
-<form name="login-form" class="login-form" action="" method="post">
+<form name="login-form" class="login-form" action="login.php" method="post">
 
 	<!--HEADER-->
     <div class="header">
     <!--TITLE--><h1>Login Form</h1><!--END TITLE-->
     </div>
     <!--END HEADER-->
-	
+
 	<!--CONTENT-->
     <div class="content">
 	<!--USERNAME--><input name="username" type="text" class="input username" value="Username" onfocus="this.value=''" /><!--END USERNAME-->
     <!--PASSWORD--><input name="password" type="password" class="input password" value="Password" onfocus="this.value=''" /><!--END PASSWORD-->
     </div>
     <!--END CONTENT-->
-    
+
     <!--FOOTER-->
     <div class="footer">
     <!--LOGIN BUTTON--><input type="submit" name="submit" value="Login" class="button" /><!--END LOGIN BUTTON-->
