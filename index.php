@@ -26,6 +26,17 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+<<<<<<< HEAD:index.html
+<<<<<<< HEAD
+Welcome Everyone !!! 
+=======
+Welcome all
+>>>>>>> 8e34e84de41a77fe175eaaff50ab30c4abdb1047
+</body>
+=======
+=======
+>>>>>>> origin/master:index.php
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
@@ -52,7 +63,6 @@
                     <li>
                         <a href="#contact">Contact</a>
                     </li>
-					
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -76,9 +86,6 @@
                             <li>
                                 <a href="login.php" class="btn btn-default btn-lg"><i class="fa fa-user fa-fw"></i> <span class="network-name">Login</span></a>
                             </li>
-							<li>
-                                <a href="analyse.php" class="btn btn-default btn-lg"><i class=""></i> <span class="network-name">Analyse</span></a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -98,4 +105,12 @@
 
 </body>
 
+<<<<<<< HEAD:index.html
+>>>>>>> refs/remotes/origin/pr/2
+=======
+=======
+Welcome all
+</body>
+>>>>>>> refs/remotes/origin/master
+>>>>>>> origin/master:index.php
 </html>

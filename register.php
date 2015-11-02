@@ -6,13 +6,21 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 session_start();
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 $todir = "img/";
 $todir1="img/";
 
 if(isset($_POST['submit'])){
 $name=$_POST["name"];
 $addr=$_POST["address"];
+<<<<<<< HEAD
 $place=$_POST["place"];
+=======
+$city=$_POST["city"];
+>>>>>>> origin/master
 $state=$_POST["state"];
 $dob =$_POST["dob"];
 $age=$_POST["age"];
@@ -27,11 +35,18 @@ $path1=$todir.$_FILES['img']['name'];
 
 
 
+<<<<<<< HEAD
 $sql="INSERT INTO patient(unique_id,name,dob,age,address,place,state,cno,physical,photo) VALUES ('','$name','$dob','$age','$addr','$place','$state','$contact','$handi','$path1')";
 
  if (mysqli_query($conn, $sql)) {
 	 $_SESSION["id"]=mysqli_insert_id($conn);
     header("location:welcome.php");
+=======
+$sql="INSERT INTO patient(unique_id,name,dob,age,address,city,state,cno,disease,photo) VALUES ('','$name','$dob','$age','$addr','$city','$state','$contact','$handi','$path1')";
+
+ if (mysqli_query($conn, $sql)) {
+    echo "successfully registered";
+>>>>>>> origin/master
 
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -59,6 +74,7 @@ $sql="INSERT INTO patient(unique_id,name,dob,age,address,place,state,cno,physica
 		<link href="css/admin_style.css" rel="stylesheet">
 	</head>
 	<body>
+<<<<<<< HEAD
  <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -121,6 +137,29 @@ $sql="INSERT INTO patient(unique_id,name,dob,age,address,place,state,cno,physica
         </div>
         <!-- /.container -->
     </nav>
+=======
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Health India</a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+
+          </ul>
+
+
+        <!---->
+        </div>
+      </div>
+</nav>
+>>>>>>> origin/master
 
 <div class="container-fluid">
 
@@ -139,8 +178,13 @@ $sql="INSERT INTO patient(unique_id,name,dob,age,address,place,state,cno,physica
 
 
         </div><!--/span-->
+<<<<<<< HEAD
 <div class="modal-dialog">
        
+=======
+
+        <div class="col-sm-9 col-md-10 main">
+>>>>>>> origin/master
 
 
 
@@ -152,6 +196,7 @@ $sql="INSERT INTO patient(unique_id,name,dob,age,address,place,state,cno,physica
           <form method="POST" action="register.php" enctype="multipart/form-data" >
 
           <div class="form-group">
+<<<<<<< HEAD
             <label for="Tag">Name:</label>
             <input type="text" class="form-control input-lg" id="name" name="name" placeholder="Name">
           </div>
@@ -196,6 +241,52 @@ $sql="INSERT INTO patient(unique_id,name,dob,age,address,place,state,cno,physica
           ​
           ​
           <input type="submit" class="btn btn-success btn-lg btn-block" value="Done" name="submit">
+=======
+            <label for="Tag">Name</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+          </div>
+           <div class="form-group">
+            <label for="Tag">Address</label>
+            <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+          </div>
+          <div class="form-group">
+           <label for="Tag">City</label>
+           <input type="text" class="form-control" id="city" name="city" placeholder="City">
+         </div>
+         <div class="form-group">
+          <label for="Tag">State</label>
+          <input type="text" class="form-control" id="state" name="state" placeholder="State">
+        </div>
+          <div class="form-group">
+           <label for="Tag">Age</label>
+           <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+         </div>
+          <div  style="display:inline;">
+          ​
+            <label for="Content">Date of Birth</label><br>
+            <input type="date" id="dob"  name="dob" placeholder="dob"><br><br>
+            <b> Pic:</b>
+            <input type="file" name="img" >
+            </div>
+            <br>
+          <div class="form-group">
+            <label for="Content">Gender</label>
+              <input type="text" class="form-control" id="gender" name="gender" placeholder="gender">
+            </div>
+          ​
+            <div class="form-group">
+            <label for="Content">Contact</label>
+              <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact">
+            </div>
+
+            <div class="form-group">
+            <label for="Content">Physically Handicaped</label>
+              <input type="text" class="form-control" id="handi" name="handi" placeholder="handicaped">
+            </div>
+          ​
+          ​
+          <input type="submit" class="btn" value="Done" name="submit">
+>>>>>>> origin/master
           </form>
           </div>
 
@@ -203,7 +294,11 @@ $sql="INSERT INTO patient(unique_id,name,dob,age,address,place,state,cno,physica
       </div>
 	</div>
 </div>
+<<<<<<< HEAD
 </div>
+=======
+
+>>>>>>> origin/master
 
 
 	<!-- script references -->

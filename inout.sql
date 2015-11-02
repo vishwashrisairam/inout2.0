@@ -1,4 +1,5 @@
 -- phpMyAdmin SQL Dump
+<<<<<<< HEAD
 -- version 4.3.11
 -- http://www.phpmyadmin.net
 --
@@ -6,6 +7,15 @@
 -- Generation Time: Nov 01, 2015 at 11:26 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
+=======
+-- version 4.1.14
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Nov 01, 2015 at 05:17 AM
+-- Server version: 5.6.17
+-- PHP Version: 5.5.12
+>>>>>>> origin/master
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -27,12 +37,22 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `camp` (
+<<<<<<< HEAD
   `campid` int(11) NOT NULL,
   `campname` varchar(100) NOT NULL,
   `date` date NOT NULL,
   `place` varchar(50) NOT NULL,
   `description` varchar(500) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+=======
+  `campid` int(11) NOT NULL AUTO_INCREMENT,
+  `campname` varchar(100) NOT NULL,
+  `date` date NOT NULL,
+  `place` varchar(50) NOT NULL,
+  `description` varchar(500) NOT NULL,
+  PRIMARY KEY (`campid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+>>>>>>> origin/master
 
 --
 -- Dumping data for table `camp`
@@ -52,7 +72,11 @@ INSERT INTO `camp` (`campid`, `campname`, `date`, `place`, `description`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `doctor` (
+<<<<<<< HEAD
   `doctorid` int(11) NOT NULL,
+=======
+  `doctorid` int(11) NOT NULL AUTO_INCREMENT,
+>>>>>>> origin/master
   `email` text NOT NULL,
   `password` varchar(11) NOT NULL,
   `photo` text NOT NULL,
@@ -60,18 +84,28 @@ CREATE TABLE IF NOT EXISTS `doctor` (
   `specialization` varchar(11) NOT NULL,
   `year of passing` int(11) NOT NULL,
   `hospital` varchar(100) NOT NULL,
+<<<<<<< HEAD
   `city` text NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+=======
+  `city` text NOT NULL,
+  PRIMARY KEY (`doctorid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+>>>>>>> origin/master
 
 --
 -- Dumping data for table `doctor`
 --
 
 INSERT INTO `doctor` (`doctorid`, `email`, `password`, `photo`, `institute`, `specialization`, `year of passing`, `hospital`, `city`) VALUES
+<<<<<<< HEAD
 (1, 'doctor1@gmail.com', '123', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS9fPbNpmq_aGsAzB4remKbzHIRIY9mAJo89VpXPXB9UIznkeOQ', 'svnit', 'dental', 2005, 'random hosp', 'surat'),
 (2, 'doctor2@gmail.com', '456', 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAJFAAAAJDBjYTZmZmJiLTU3N2MtNGViNi04ZjhhLWY3NzMzZmY2YjE1ZQ.jpg', 'svnit', 'computer', 2006, 'campus dispensary', 'surat'),
 (3, 'deepbhavsar78@gmail.com', '456', 'https://media.licdn.com/mpr/mpr/shrinknp_400_400/AAEAAQAAAAAAAAJFAAAAJDBjYTZmZmJiLTU3N2MtNGViNi04ZjhhLWY3NzMzZmY2YjE1ZQ.jpg', 'SVNIT', 'Orthopedic', 2003, 'AIIMS', 'Ahmedabad'),
 (4, 'sairamvishwa@vmail.com', '456', 'http://globe-views.com/dcim/dreams/doctor/doctor-05.jpg', 'Svnit', 'Skin specia', 2004, 'civil hospital', 'Surat');
+=======
+(1, 'doctor1@gmail.com', '123', 'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcS9fPbNpmq_aGsAzB4remKbzHIRIY9mAJo89VpXPXB9UIznkeOQ', 'svnit', 'dental', 2005, 'random hosp', 'surat');
+>>>>>>> origin/master
 
 -- --------------------------------------------------------
 
@@ -80,6 +114,7 @@ INSERT INTO `doctor` (`doctorid`, `email`, `password`, `photo`, `institute`, `sp
 --
 
 CREATE TABLE IF NOT EXISTS `patient` (
+<<<<<<< HEAD
   `unique_id` int(11) NOT NULL,
   `name` text NOT NULL,
   `dob` date NOT NULL,
@@ -92,11 +127,26 @@ CREATE TABLE IF NOT EXISTS `patient` (
   `gender` varchar(7) NOT NULL,
   `physical` varchar(7) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+=======
+  `unique_id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` text NOT NULL,
+  `dob` date NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `state` varchar(30) NOT NULL,
+  `age` int(11) NOT NULL,
+  `address` varchar(11) NOT NULL,
+  `cno` bigint(20) NOT NULL,
+  `disease` varchar(11) NOT NULL,
+  `photo` text NOT NULL,
+  PRIMARY KEY (`unique_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+>>>>>>> origin/master
 
 --
 -- Dumping data for table `patient`
 --
 
+<<<<<<< HEAD
 INSERT INTO `patient` (`unique_id`, `name`, `dob`, `age`, `address`, `cno`, `photo`, `place`, `state`, `gender`, `physical`) VALUES
 (1, 'rajan', '2456-03-12', 19, 'akkqpqkp', 2147483647, 'img/The-best-top-hd-desktop-bleach-wallpaper-bleach-wallpapers-2.jpg', NULL, '', '', ''),
 (2, 'Deep', '1995-10-08', 20, 'srwhqyteage', 12345687, '', 'ahmedabad', 'gujarat', 'male', 'no'),
@@ -107,6 +157,11 @@ INSERT INTO `patient` (`unique_id`, `name`, `dob`, `age`, `address`, `cno`, `pho
 (7, 'dia mirza', '2015-08-05', 20, 'sdad', 545656211, 'img/Screenshot (3).png', 'surat', 'gujarat', '', 'no'),
 (8, 'dia mirza', '2015-08-05', 20, 'sdad', 545656211, 'img/Screenshot (3).png', 'surat', 'gujarat', '', 'no'),
 (9, 'dia mirza', '2015-08-05', 20, 'sdad', 545656211, 'img/Screenshot (3).png', 'surat', 'gujarat', '', 'no');
+=======
+INSERT INTO `patient` (`unique_id`, `name`, `dob`, `city`, `state`, `age`, `address`, `cno`, `disease`, `photo`) VALUES
+(1, 'rajan', '2456-03-12', 'bhavnagar', 'gujarat', 19, 'akkqpqkp', 9409054975, 'no', 'img/The-best-top-hd-desktop-bleach-wallpaper-bleach-wallpapers-2.jpg'),
+(2, 'achal', '2014-01-07', 'bhavnagar', 'gujarat', 20, 'surat', 7600311516, 'tb', '');
+>>>>>>> origin/master
 
 -- --------------------------------------------------------
 
@@ -115,6 +170,7 @@ INSERT INTO `patient` (`unique_id`, `name`, `dob`, `age`, `address`, `cno`, `pho
 --
 
 CREATE TABLE IF NOT EXISTS `report` (
+<<<<<<< HEAD
   `reportid` int(11) NOT NULL,
   `unique_id` int(11) NOT NULL,
   `doctor_id` int(11) NOT NULL,
@@ -125,11 +181,26 @@ CREATE TABLE IF NOT EXISTS `report` (
   `place` varchar(25) NOT NULL,
   `medicine` varchar(25) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
+=======
+  `reportid` int(11) NOT NULL AUTO_INCREMENT,
+  `unique_id` int(11) NOT NULL,
+  `doctor_id` int(11) NOT NULL,
+  `disese_found` varchar(50) DEFAULT NULL,
+  `dignosis_report` varchar(11) NOT NULL,
+  `docs` text NOT NULL,
+  `dt` timestamp(6) NOT NULL,
+  `hospital` varchar(50) NOT NULL,
+  `place` varchar(50) NOT NULL,
+  `medicine` varchar(50) NOT NULL,
+  PRIMARY KEY (`reportid`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+>>>>>>> origin/master
 
 --
 -- Dumping data for table `report`
 --
 
+<<<<<<< HEAD
 INSERT INTO `report` (`reportid`, `unique_id`, `doctor_id`, `disese_found`, `dignosis_report`, `dt`, `hospital`, `place`, `medicine`) VALUES
 (1, 1, 1, 'love', 'needs marri', '2015-10-31 18:49:48.000000', 'svnit_dispe', 'surat', 'tablet'),
 (2, 3, 4, 'the Viral fever', 'Tu beer he ', '2009-11-09 22:41:27.000000', 'AIIMS', 'Ahmedabad', 'wrhsgjeagjj'),
@@ -210,6 +281,13 @@ ALTER TABLE `patient`
 --
 ALTER TABLE `report`
   MODIFY `reportid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+=======
+INSERT INTO `report` (`reportid`, `unique_id`, `doctor_id`, `disese_found`, `dignosis_report`, `docs`, `dt`, `hospital`, `place`, `medicine`) VALUES
+(1, 1, 1, 'fever', 'viral fever', '', '2015-11-01 03:54:23.000000', 'svnit_dispe', 'surat', 'tablet'),
+(2, 2, 1, 'dengue', 'one week be', '', '2015-11-01 00:34:39.000000', 'random hosp', 'surat', ''),
+(3, 1, 1, 'dengue', 'one week be', 'img/', '2015-10-26 18:30:00.000000', '1`', 'surat', 'glucose');
+
+>>>>>>> origin/master
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
