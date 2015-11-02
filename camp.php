@@ -7,9 +7,9 @@ if ($conn->connect_error) {
 }
 session_start();
 
-<<<<<<< HEAD
 
 $id=$_REQUEST["id"];
+
 
 $sql2="select * from camp where campid='$id'";
 $r=mysqli_query($conn,$sql2);
@@ -22,18 +22,16 @@ while($row=mysqli_fetch_assoc($r)){
 
 }
 
+//echo $p;
 
 $message="There is going to be ".$name."in your city
 on ".$date." Make sure you do visit it and spread the word." ;
 
-=======
-$p='bhavnagar';
->>>>>>> origin/master
 
 
-$sql="select * from patient where city='$p'";
+$sql="select * from patient where place='$p'";
 $result=mysqli_query($conn,$sql);
-//print_r($result);
+print_r($result);
 $ar=array();
 if(mysqli_num_rows($result)>0){
   while($row=mysqli_fetch_assoc($result))
@@ -44,16 +42,13 @@ if(mysqli_num_rows($result)>0){
 }
 print_r($ar);
 
+
 $post_data = array(
     // 'From' doesn't matter; For transactional, this will be replaced with your SenderId;
     // For promotional, this will be ignored by the SMS gateway
     'From'   => '8866447843',
     'To'    => $ar,
-<<<<<<< HEAD
     'Body'  => $message,
-=======
-    'Body'  => 'A camp on event xyz is comming in your town. Be ready and do not miss it....'
->>>>>>> origin/master
 );
 
 $exotel_sid = "svnit1"; // Your Exotel SID - Get it from here: http://my.exotel.in/Exotel/settings/site#api-settings
@@ -76,14 +71,9 @@ $http_code = curl_getinfo($ch ,CURLINFO_HTTP_CODE);
 
 curl_close($ch);
 
-<<<<<<< HEAD
 
 print "Response = ".print_r($http_result);
 echo '<script>alert("Successfully sent message...");</script>';
-
+//header("Location:event_notification.php");
 //
-=======
-print "Response = ".print_r($http_result);
-
->>>>>>> origin/master
 ?>

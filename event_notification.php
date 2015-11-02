@@ -53,26 +53,17 @@ $un=$_SESSION["login_user"];
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-<<<<<<< HEAD
                         <a href="report.php">Home</a>
 
                     </li>
 					<li>
-=======
->>>>>>> origin/master
                         <?php echo '<a href="docprofile.php?id='.$un.'">Profile</a>';?>
 
                     </li>
                     <li>
                         <a href="logout.php">Logout</a>
                     </li>
-<<<<<<< HEAD
 
-=======
-                    <li>
-                        <a href="#contact"></a>
-                    </li>
->>>>>>> origin/master
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -104,11 +95,7 @@ $un=$_SESSION["login_user"];
 										<tr>
 											<th>CampID</th><th>Camp Name</th>
 											<th>Date</th><th>Place</th>
-<<<<<<< HEAD
 											<th>Description</th><th><a href="camp.php?id='.$id.'">Notify</a></th>
-=======
-											<th>Description</th><th><a href="camp.php?place='.$p.'">Notify</a></th>
->>>>>>> origin/master
 
 										</tr>';
                 while($row=mysqli_fetch_assoc($res)){
@@ -130,7 +117,7 @@ $un=$_SESSION["login_user"];
             }else{
 
 
-              $sql1="select * from camp where camp.date > now()";
+              $sql1="select * from camp ";
               $result=mysqli_query($conn,$sql1);
 
               echo '<div class="container">
