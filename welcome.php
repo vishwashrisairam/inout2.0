@@ -1,9 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<?php
+session_start();
+?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 <head>
-
-    <meta charset="utf-8">
+<!--META-->
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -22,13 +24,9 @@
     <link href="http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
 
 
-
 </head>
-
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+ <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
         <div class="container topnav">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -44,25 +42,25 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#about">About</a>
+						<a href="report.php">Home</a>
                     </li>
-                    <li>
-                        <a href="#services">Services</a>
-                    </li>
-                    <li>
-                        <a href="#contact">Contact</a>
+						
+					<li>
+                        <a href="register.php">New Register</a>
                     </li>
 					
+                    <li>
+                        <a href="logout.php">Logout</a>
+                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container -->
     </nav>
-
-
-    <!-- Header -->
-    <a name="about"></a>
+	
+	<a name="about"></a>
     <div class="intro-header">
         <div class="container">
 
@@ -74,10 +72,7 @@
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li>
-                                <a href="login.php" class="btn btn-default btn-lg"><i class="fa fa-user fa-fw"></i> <span class="network-name">Login</span></a>
-                            </li>
-							<li>
-                                <a href="analyse.php" class="btn btn-default btn-lg"><i class=""></i> <span class="network-name">Analyse</span></a>
+                                <h2>Your UNIQUE-ID IS: <?php $n=$_SESSION["id"];echo $n;?> </h2>
                             </li>
                         </ul>
                     </div>
@@ -96,6 +91,8 @@
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
 
-</body>
 
+
+</body>
 </html>
+​

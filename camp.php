@@ -7,7 +7,24 @@ if ($conn->connect_error) {
 }
 session_start();
 
-$p='bhavnagar';
+
+$id=$_REQUEST["id"];
+
+$sql2="select * from camp where campid='$id'";
+$r=mysqli_query($conn,$sql2);
+
+
+while($row=mysqli_fetch_assoc($r)){
+    $p=$row["place"];
+    $name=$row["campname"];
+    $date=$row["date"];
+
+}
+
+
+$message="There is going to be ".$name."in your city
+on ".$date." Make sure you do visit it and spread the word." ;
+
 
 
 $sql="select * from patient where city='$p'";
@@ -28,7 +45,7 @@ $post_data = array(
     // For promotional, this will be ignored by the SMS gateway
     'From'   => '8866447843',
     'To'    => $ar,
-    'Body'  => 'A camp on event xyz is comming in your town. Be ready and do not miss it....'
+    'Body'  => $message,
 );
 
 $exotel_sid = "svnit1"; // Your Exotel SID - Get it from here: http://my.exotel.in/Exotel/settings/site#api-settings
@@ -51,6 +68,9 @@ $http_code = curl_getinfo($ch ,CURLINFO_HTTP_CODE);
 
 curl_close($ch);
 
-print "Response = ".print_r($http_result);
 
+print "Response = ".print_r($http_result);
+echo '<script>alert("Successfully sent message...");</script>';
+
+//
 ?>

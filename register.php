@@ -6,14 +6,13 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 session_start();
-
 $todir = "img/";
 $todir1="img/";
 
 if(isset($_POST['submit'])){
 $name=$_POST["name"];
 $addr=$_POST["address"];
-$city=$_POST["city"];
+$place=$_POST["place"];
 $state=$_POST["state"];
 $dob =$_POST["dob"];
 $age=$_POST["age"];
@@ -28,10 +27,11 @@ $path1=$todir.$_FILES['img']['name'];
 
 
 
-$sql="INSERT INTO patient(unique_id,name,dob,age,address,city,state,cno,disease,photo) VALUES ('','$name','$dob','$age','$addr','$city','$state','$contact','$handi','$path1')";
+$sql="INSERT INTO patient(unique_id,name,dob,age,address,place,state,cno,physical,photo) VALUES ('','$name','$dob','$age','$addr','$place','$state','$contact','$handi','$path1')";
 
  if (mysqli_query($conn, $sql)) {
-    echo "successfully registered";
+	 $_SESSION["id"]=mysqli_insert_id($conn);
+    header("location:welcome.php");
 
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
@@ -59,27 +59,68 @@ $sql="INSERT INTO patient(unique_id,name,dob,age,address,city,state,cno,disease,
 		<link href="css/admin_style.css" rel="stylesheet">
 	</head>
 	<body>
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Health India</a>
+ <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">Health India</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="register.php">New Register</a>
+                    </li>
+					<li>
+						 <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+        <div class="container topnav">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand topnav" href="#">Health India</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="report.php">Home</a>
+                    </li>
+					<li>
+                        <a href="register.php">New Register</a>
+                    </li>
+					
+                    <li>
+                        <a href="logout.php">Logout</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-
-          </ul>
-
-
-        <!---->
+        <!-- /.container -->
+    </nav>
+					</li>
+                    <li>
+                        <a href="logout.php">Logout</a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-      </div>
-</nav>
+        <!-- /.container -->
+    </nav>
 
 <div class="container-fluid">
 
@@ -98,8 +139,8 @@ $sql="INSERT INTO patient(unique_id,name,dob,age,address,city,state,cno,disease,
 
 
         </div><!--/span-->
-
-        <div class="col-sm-9 col-md-10 main">
+<div class="modal-dialog">
+       
 
 
 
@@ -111,50 +152,50 @@ $sql="INSERT INTO patient(unique_id,name,dob,age,address,city,state,cno,disease,
           <form method="POST" action="register.php" enctype="multipart/form-data" >
 
           <div class="form-group">
-            <label for="Tag">Name</label>
-            <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+            <label for="Tag">Name:</label>
+            <input type="text" class="form-control input-lg" id="name" name="name" placeholder="Name">
           </div>
            <div class="form-group">
-            <label for="Tag">Address</label>
-            <input type="text" class="form-control" id="address" name="address" placeholder="Address">
+            <label for="Tag">Address:</label>
+            <input type="text" class="form-control input-lg" id="address" name="address" placeholder="Address">
           </div>
           <div class="form-group">
-           <label for="Tag">City</label>
-           <input type="text" class="form-control" id="city" name="city" placeholder="City">
+           <label for="Tag">City:</label>
+           <input type="text" class="form-control input-lg" id="place" name="place" placeholder="City">
          </div>
          <div class="form-group">
-          <label for="Tag">State</label>
-          <input type="text" class="form-control" id="state" name="state" placeholder="State">
+          <label for="Tag">State:</label>
+          <input type="text" class="form-control input-lg" id="state" name="state" placeholder="State">
         </div>
           <div class="form-group">
-           <label for="Tag">Age</label>
-           <input type="text" class="form-control" id="age" name="age" placeholder="Age">
+           <label for="Tag">Age:</label>
+           <input type="text" class="form-control input-lg" id="age" name="age" placeholder="Age">
          </div>
           <div  style="display:inline;">
           ​
-            <label for="Content">Date of Birth</label><br>
-            <input type="date" id="dob"  name="dob" placeholder="dob"><br><br>
-            <b> Pic:</b>
-            <input type="file" name="img" >
+            <label for="Content">Date of Birth:</label><br>
+            <input type="date" id="dob"  name="dob" class="form-control input-lg" placeholder="dob"><br><br>
+            <b> Photo:</b>
+            <input type="file" name="img" class="form-control input-lg" >
             </div>
             <br>
           <div class="form-group">
-            <label for="Content">Gender</label>
-              <input type="text" class="form-control" id="gender" name="gender" placeholder="gender">
+            <label for="Content">Gender:</label>
+              <input type="text" class="form-control input-lg" id="gender" name="gender" placeholder="gender">
             </div>
           ​
             <div class="form-group">
-            <label for="Content">Contact</label>
-              <input type="text" class="form-control" id="contact" name="contact" placeholder="Contact">
+            <label for="Content">Contact:</label>
+              <input type="text" class="form-control input-lg" id="contact" name="contact" placeholder="Contact">
             </div>
 
             <div class="form-group">
-            <label for="Content">Physically Handicaped</label>
-              <input type="text" class="form-control" id="handi" name="handi" placeholder="handicaped">
+            <label for="Content">Physically Handicaped:</label>
+              <input type="text" class="form-control input-lg" id="handi" name="handi" placeholder="handicaped">
             </div>
           ​
           ​
-          <input type="submit" class="btn" value="Done" name="submit">
+          <input type="submit" class="btn btn-success btn-lg btn-block" value="Done" name="submit">
           </form>
           </div>
 
@@ -162,7 +203,7 @@ $sql="INSERT INTO patient(unique_id,name,dob,age,address,city,state,cno,disease,
       </div>
 	</div>
 </div>
-
+</div>
 
 
 	<!-- script references -->

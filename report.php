@@ -53,15 +53,20 @@ $un=$_SESSION["login_user"];
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
+                        <a href="event_notification.php">Notify for camp!</a>
+                    </li>
+					<li>
+                        <a href="register.php">New Register</a>
+                    </li>
+					
+					<li>
                         <?php echo '<a href="docprofile.php?id='.$un.'">Profile</a>';?>
 
                     </li>
                     <li>
                         <a href="logout.php">Logout</a>
                     </li>
-                    <li>
-                        <a href="#contact"></a>
-                    </li>
+                    
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -78,24 +83,7 @@ $un=$_SESSION["login_user"];
       </form>
 	  <br>
 
-      <form class="form-inline" action="report.php" method="post" name="placesearch">
-            <div class="form-group">
-			    <input type="text" class="form-control input" name="search_place" value=""  placeholder="Search Place">
-            </div>
-            <div class="form-group">
-				<input type="text" class="form-control input" name="search_time" value=""  placeholder="Search Time">
-            </div>
-
-            <input class="btn btn-success btn btn-default" type="submit" name="submit" value="Search">
-      </form>
-	  <br>
-      <form class="form-inline" action="report.php" method="post" name="disease search">
-            <div class="form-group">
-				<input type="text" class="form-control input" name="search_disease" value=""  placeholder="Enter disease">
-
-            </div>
-            <input class="btn btn-success btn btn-default" type="submit" name="submit_disease" value="Search">
-      </form>
+      
 
       <?php
           if(isset($_POST["submit_id"])){
@@ -183,12 +171,9 @@ $un=$_SESSION["login_user"];
               
                {
               //  print_r($res);
-                 echo '
-                 <div>
-
-                 <a href="add_report.php?id='.$id.'"> Add </a></div>';
-
-                 echo '</div><h1>Reports</h1><div class="panel-body col-lg-6" style="height:500px;overflow:auto;">';
+                 
+                 echo '</div><h1>Reports</h1>
+				 <button><div style="float:right;"><a href="add_report.php?id='.$id.'">New Report </a></div></button><div class="panel-body col-lg-6" style="height:500px;overflow:auto;">';
                  
                  while($row = mysqli_fetch_array($res)) {
                    echo'<hr><div id="tab-1" class="tab-content current">

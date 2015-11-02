@@ -53,17 +53,15 @@ $un=$_SESSION["login_user"];
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="report.php">Home</a>
-
-                    </li>
-					<li>
                         <?php echo '<a href="docprofile.php?id='.$un.'">Profile</a>';?>
 
                     </li>
                     <li>
                         <a href="logout.php">Logout</a>
                     </li>
-
+                    <li>
+                        <a href="#contact"></a>
+                    </li>
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -73,19 +71,14 @@ $un=$_SESSION["login_user"];
     <br>
 
     <div class="container" style="margin:35px;"">
-      <form class="form-inline" action="event_notification.php" method="post" name="placesearch">
-            <div class="form-group">
-          <input type="text" class="form-control input" name="search_place" value=""  placeholder="Search Place">
-            </div>
-
-
-            <input class="btn btn-success btn btn-default" type="submit" name="submit" value="Search">
+      <form class="form-inline" action="chart.php" method="post" name="placesearch">
+          <input class="btn btn-success btn btn-default" type="submit" name="submit" value="View Nearby events">
       </form>
 
       <?php
             if(isset($_POST["submit"])){
                 $p=$_POST["search_place"];
-                $sql="select * from camp where place='$p'";
+                $sql="select * ";
                 $res=mysqli_query($conn,$sql);
 
                 echo '<div class="container">
@@ -95,7 +88,7 @@ $un=$_SESSION["login_user"];
 										<tr>
 											<th>CampID</th><th>Camp Name</th>
 											<th>Date</th><th>Place</th>
-											<th>Description</th><th><a href="camp.php?id='.$id.'">Notify</a></th>
+											<th>Description</th><th><a href="camp.php?place='.$p.'">Notify</a></th>
 
 										</tr>';
                 while($row=mysqli_fetch_assoc($res)){
@@ -115,37 +108,7 @@ $un=$_SESSION["login_user"];
                 ';
 
             }else{
-
-
-              $sql1="select * from camp where camp.date > now()";
-              $result=mysqli_query($conn,$sql1);
-
-              echo '<div class="container">
-                  <div class="table-responsive">
-
-                  <table class="table">
-                  <tr>
-                    <th>CampID</th><th>Camp Name</th>
-                    <th>Date</th><th>Place</th>
-                    <th>Description</th><th></th>
-
-                  </tr>';
-              while($row=mysqli_fetch_assoc($result)){
-                  echo '<tr>
-                  <td>'.$row["campid"].'</td>
-                  <td>'.$row["campname"].'</td>
-                  <td>'.$row["date"].'</td>
-                  <td>'.$row["place"].'</td>
-                  <td>'.$row["description"].'</td>
-                  <td><a href="camp.php?&id='.$row["campid"].'">Notify</a></td>
-                  </tr>';
-              }
-              echo '		  </table>
-              </div>
-            </div>
-
-              ';
-            }
+                        }
        ?>
     </div>
 
